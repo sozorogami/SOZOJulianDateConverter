@@ -16,6 +16,8 @@
 		2F8B6B3718ACEA9E00BB21CE /* libSOZOJulian.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F8B6B1E18ACEA9D00BB21CE /* libSOZOJulian.a */; };
 		2F8B6B3D18ACEA9E00BB21CE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F8B6B3B18ACEA9E00BB21CE /* InfoPlist.strings */; };
 		2F8B6B4018ACEA9E00BB21CE /* SOZOJulianTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8B6B3F18ACEA9E00BB21CE /* SOZOJulianTests.m */; };
+		2F8B6B4D18ACF7DA00BB21CE /* SOZOGregorianDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8B6B4A18ACF7DA00BB21CE /* SOZOGregorianDate.m */; };
+		2F8B6B4E18ACF7DA00BB21CE /* SOZOJulianDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8B6B4C18ACF7DA00BB21CE /* SOZOJulianDate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,10 @@
 		2F8B6B3C18ACEA9E00BB21CE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2F8B6B3E18ACEA9E00BB21CE /* SOZOJulianTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SOZOJulianTests.h; sourceTree = "<group>"; };
 		2F8B6B3F18ACEA9E00BB21CE /* SOZOJulianTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOZOJulianTests.m; sourceTree = "<group>"; };
+		2F8B6B4918ACF7DA00BB21CE /* SOZOGregorianDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOZOGregorianDate.h; sourceTree = "<group>"; };
+		2F8B6B4A18ACF7DA00BB21CE /* SOZOGregorianDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOZOGregorianDate.m; sourceTree = "<group>"; };
+		2F8B6B4B18ACF7DA00BB21CE /* SOZOJulianDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOZOJulianDate.h; sourceTree = "<group>"; };
+		2F8B6B4C18ACF7DA00BB21CE /* SOZOJulianDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOZOJulianDate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +117,10 @@
 		2F8B6B2318ACEA9D00BB21CE /* SOZOJulian */ = {
 			isa = PBXGroup;
 			children = (
+				2F8B6B4918ACF7DA00BB21CE /* SOZOGregorianDate.h */,
+				2F8B6B4A18ACF7DA00BB21CE /* SOZOGregorianDate.m */,
+				2F8B6B4B18ACF7DA00BB21CE /* SOZOJulianDate.h */,
+				2F8B6B4C18ACF7DA00BB21CE /* SOZOJulianDate.m */,
 				2F8B6B2618ACEA9D00BB21CE /* SOZOJulian.h */,
 				2F8B6B2818ACEA9D00BB21CE /* SOZOJulian.m */,
 				2F8B6B2418ACEA9D00BB21CE /* Supporting Files */,
@@ -244,6 +254,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F8B6B2918ACEA9D00BB21CE /* SOZOJulian.m in Sources */,
+				2F8B6B4D18ACF7DA00BB21CE /* SOZOGregorianDate.m in Sources */,
+				2F8B6B4E18ACF7DA00BB21CE /* SOZOJulianDate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +415,7 @@
 				2F8B6B4518ACEA9E00BB21CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2F8B6B4618ACEA9E00BB21CE /* Build configuration list for PBXNativeTarget "SOZOJulianTests" */ = {
 			isa = XCConfigurationList;
@@ -411,6 +424,7 @@
 				2F8B6B4818ACEA9E00BB21CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
