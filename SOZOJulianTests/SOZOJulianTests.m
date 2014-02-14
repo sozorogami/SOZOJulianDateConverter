@@ -9,6 +9,7 @@
 #import "SOZOGregorianDate.h"
 #import "SOZOJulianDate.h"
 #import "SOZOJulianTests.h"
+#import "SOZODateConverter.h"
 
 @interface SOZOJulianTests ()
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
@@ -17,7 +18,9 @@
 @implementation SOZOJulianTests
 
 - (void)setUp {
-    self.dateFormatter = [NSDateFormatter new];
+    self.dateFormatter = [[NSDateFormatter alloc] init];
+    [self.dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+    [self.dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
 }
 
 - (void)testExample {
@@ -26,10 +29,8 @@
     STAssertEquals([converted year], -587, @"Year is wrong.");
 }
 
-- (void)testConvertingGregorianToJulian {
-    STAssertEquals([SOZODateConverter gregorianDateFromJulianYear:1436 month:1 day:5],
-                   [self.dateFormatter dateFromString:@"February 3rd, 1436"],
-                   @"Expected Julian date of 1/5/1436 to be converted to Gregorian 2/3/1436.");
+- (void)testConvertingJulianToGregorian {
+    STAssertTrue([[SOZODateConverter gregorianDateFromJulianYear:1436 month:1 day:25] isEqualToDate:[self.dateFormatter dateFromString:@"1436-02-03 12:00:00"]], @"Expected Julian date of 1/25/1436 to be converted to Gregorian 2/3/1436.");
 }
 
 @end
