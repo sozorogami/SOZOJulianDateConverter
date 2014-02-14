@@ -18,6 +18,7 @@
 		2F8B6B4018ACEA9E00BB21CE /* SOZOJulianTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8B6B3F18ACEA9E00BB21CE /* SOZOJulianTests.m */; };
 		2F8B6B4D18ACF7DA00BB21CE /* SOZOGregorianDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8B6B4A18ACF7DA00BB21CE /* SOZOGregorianDate.m */; };
 		2F8B6B4E18ACF7DA00BB21CE /* SOZOJulianDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8B6B4C18ACF7DA00BB21CE /* SOZOJulianDate.m */; };
+		2FFA440218ADD73500D35205 /* SOZODateConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFA440118ADD73500D35205 /* SOZODateConverter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,8 @@
 		2F8B6B4A18ACF7DA00BB21CE /* SOZOGregorianDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOZOGregorianDate.m; sourceTree = "<group>"; };
 		2F8B6B4B18ACF7DA00BB21CE /* SOZOJulianDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOZOJulianDate.h; sourceTree = "<group>"; };
 		2F8B6B4C18ACF7DA00BB21CE /* SOZOJulianDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOZOJulianDate.m; sourceTree = "<group>"; };
+		2FFA440018ADD73500D35205 /* SOZODateConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOZODateConverter.h; sourceTree = "<group>"; };
+		2FFA440118ADD73500D35205 /* SOZODateConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOZODateConverter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +124,8 @@
 				2F8B6B4A18ACF7DA00BB21CE /* SOZOGregorianDate.m */,
 				2F8B6B4B18ACF7DA00BB21CE /* SOZOJulianDate.h */,
 				2F8B6B4C18ACF7DA00BB21CE /* SOZOJulianDate.m */,
+				2FFA440018ADD73500D35205 /* SOZODateConverter.h */,
+				2FFA440118ADD73500D35205 /* SOZODateConverter.m */,
 				2F8B6B2618ACEA9D00BB21CE /* SOZOJulian.h */,
 				2F8B6B2818ACEA9D00BB21CE /* SOZOJulian.m */,
 				2F8B6B2418ACEA9D00BB21CE /* Supporting Files */,
@@ -256,6 +261,7 @@
 				2F8B6B2918ACEA9D00BB21CE /* SOZOJulian.m in Sources */,
 				2F8B6B4D18ACF7DA00BB21CE /* SOZOGregorianDate.m in Sources */,
 				2F8B6B4E18ACF7DA00BB21CE /* SOZOJulianDate.m in Sources */,
+				2FFA440218ADD73500D35205 /* SOZODateConverter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
