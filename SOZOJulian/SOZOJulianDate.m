@@ -8,14 +8,18 @@
 
 #import "SOZOJulianDate.h"
 #import "SOZOGregorianDate.h"
+#import "SOZOMath.h"
 
 @implementation SOZOJulianDate
 
-- (id)initWithYear:(int)year month:(int)month day:(int)day
-{
+#pragma mark - Object Initialization
+
+- (id)initWithYear:(int)year month:(int)month day:(int)day {
     self = [super initWithYear:year month:month day:day];
     return self;
 }
+
+#pragma mark - Internal Methods
 
 + (int)epoch{
     return [[[SOZOGregorianDate alloc] initWithYear:0 month:12 day:30] asFixed];
@@ -31,7 +35,8 @@
 }
 
 - (BOOL)isLeapYear{
-    return [self year] > 0 ? [[self class] mod:[self year] y:4] == 0 : [[self class] mod:[self year] y:4] == 3;
+    float remainder = moduloTowardsFloor(self.year, 4);
+    return self.year > 0 ? remainder == 0 : remainder == 3;
 }
 
 - (int)leapDaysSinceEpoch{

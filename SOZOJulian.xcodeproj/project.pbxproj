@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2F8B6B2218ACEA9D00BB21CE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F8B6B2118ACEA9D00BB21CE /* Foundation.framework */; };
 		2F8B6B2718ACEA9D00BB21CE /* SOZOJulian.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2F8B6B2618ACEA9D00BB21CE /* SOZOJulian.h */; };
-		2F8B6B2918ACEA9D00BB21CE /* SOZOJulian.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8B6B2818ACEA9D00BB21CE /* SOZOJulian.m */; };
 		2F8B6B3118ACEA9E00BB21CE /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F8B6B3018ACEA9E00BB21CE /* SenTestingKit.framework */; };
 		2F8B6B3318ACEA9E00BB21CE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F8B6B3218ACEA9E00BB21CE /* UIKit.framework */; };
 		2F8B6B3418ACEA9E00BB21CE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F8B6B2118ACEA9D00BB21CE /* Foundation.framework */; };
@@ -19,6 +18,8 @@
 		2F8B6B4D18ACF7DA00BB21CE /* SOZOGregorianDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8B6B4A18ACF7DA00BB21CE /* SOZOGregorianDate.m */; };
 		2F8B6B4E18ACF7DA00BB21CE /* SOZOJulianDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8B6B4C18ACF7DA00BB21CE /* SOZOJulianDate.m */; };
 		2FFA440218ADD73500D35205 /* SOZODateConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFA440118ADD73500D35205 /* SOZODateConverter.m */; };
+		DA43E0B018AF6F8F002103FA /* SOZOMath.m in Sources */ = {isa = PBXBuildFile; fileRef = DA43E0AF18AF6F8F002103FA /* SOZOMath.m */; };
+		DA43E0B218AF72B2002103FA /* SOZOMathTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA43E0B118AF72B2002103FA /* SOZOMathTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,13 +50,11 @@
 		2F8B6B2118ACEA9D00BB21CE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2F8B6B2518ACEA9D00BB21CE /* SOZOJulian-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SOZOJulian-Prefix.pch"; sourceTree = "<group>"; };
 		2F8B6B2618ACEA9D00BB21CE /* SOZOJulian.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SOZOJulian.h; sourceTree = "<group>"; };
-		2F8B6B2818ACEA9D00BB21CE /* SOZOJulian.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOZOJulian.m; sourceTree = "<group>"; };
 		2F8B6B2F18ACEA9E00BB21CE /* SOZOJulianTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SOZOJulianTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F8B6B3018ACEA9E00BB21CE /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		2F8B6B3218ACEA9E00BB21CE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		2F8B6B3A18ACEA9E00BB21CE /* SOZOJulianTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SOZOJulianTests-Info.plist"; sourceTree = "<group>"; };
 		2F8B6B3C18ACEA9E00BB21CE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		2F8B6B3E18ACEA9E00BB21CE /* SOZOJulianTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SOZOJulianTests.h; sourceTree = "<group>"; };
 		2F8B6B3F18ACEA9E00BB21CE /* SOZOJulianTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOZOJulianTests.m; sourceTree = "<group>"; };
 		2F8B6B4918ACF7DA00BB21CE /* SOZOGregorianDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOZOGregorianDate.h; sourceTree = "<group>"; };
 		2F8B6B4A18ACF7DA00BB21CE /* SOZOGregorianDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOZOGregorianDate.m; sourceTree = "<group>"; };
@@ -63,6 +62,9 @@
 		2F8B6B4C18ACF7DA00BB21CE /* SOZOJulianDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOZOJulianDate.m; sourceTree = "<group>"; };
 		2FFA440018ADD73500D35205 /* SOZODateConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOZODateConverter.h; sourceTree = "<group>"; };
 		2FFA440118ADD73500D35205 /* SOZODateConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOZODateConverter.m; sourceTree = "<group>"; };
+		DA43E0AE18AF6F8F002103FA /* SOZOMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOZOMath.h; sourceTree = "<group>"; };
+		DA43E0AF18AF6F8F002103FA /* SOZOMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOZOMath.m; sourceTree = "<group>"; };
+		DA43E0B118AF72B2002103FA /* SOZOMathTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOZOMathTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,14 +122,15 @@
 		2F8B6B2318ACEA9D00BB21CE /* SOZOJulian */ = {
 			isa = PBXGroup;
 			children = (
+				2F8B6B2618ACEA9D00BB21CE /* SOZOJulian.h */,
 				2F8B6B4918ACF7DA00BB21CE /* SOZOGregorianDate.h */,
 				2F8B6B4A18ACF7DA00BB21CE /* SOZOGregorianDate.m */,
 				2F8B6B4B18ACF7DA00BB21CE /* SOZOJulianDate.h */,
 				2F8B6B4C18ACF7DA00BB21CE /* SOZOJulianDate.m */,
 				2FFA440018ADD73500D35205 /* SOZODateConverter.h */,
 				2FFA440118ADD73500D35205 /* SOZODateConverter.m */,
-				2F8B6B2618ACEA9D00BB21CE /* SOZOJulian.h */,
-				2F8B6B2818ACEA9D00BB21CE /* SOZOJulian.m */,
+				DA43E0AE18AF6F8F002103FA /* SOZOMath.h */,
+				DA43E0AF18AF6F8F002103FA /* SOZOMath.m */,
 				2F8B6B2418ACEA9D00BB21CE /* Supporting Files */,
 			);
 			path = SOZOJulian;
@@ -144,8 +147,8 @@
 		2F8B6B3818ACEA9E00BB21CE /* SOZOJulianTests */ = {
 			isa = PBXGroup;
 			children = (
-				2F8B6B3E18ACEA9E00BB21CE /* SOZOJulianTests.h */,
 				2F8B6B3F18ACEA9E00BB21CE /* SOZOJulianTests.m */,
+				DA43E0B118AF72B2002103FA /* SOZOMathTests.m */,
 				2F8B6B3918ACEA9E00BB21CE /* Supporting Files */,
 			);
 			path = SOZOJulianTests;
@@ -258,9 +261,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F8B6B2918ACEA9D00BB21CE /* SOZOJulian.m in Sources */,
 				2F8B6B4D18ACF7DA00BB21CE /* SOZOGregorianDate.m in Sources */,
 				2F8B6B4E18ACF7DA00BB21CE /* SOZOJulianDate.m in Sources */,
+				DA43E0B018AF6F8F002103FA /* SOZOMath.m in Sources */,
 				2FFA440218ADD73500D35205 /* SOZODateConverter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,6 +272,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA43E0B218AF72B2002103FA /* SOZOMathTests.m in Sources */,
 				2F8B6B4018ACEA9E00BB21CE /* SOZOJulianTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,8 +6,4 @@
 //  Copyright (c) 2014 sozorogami. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
-@interface SOZOJulian : NSObject
-
-@end
+#import "SOZODateConverter.h"

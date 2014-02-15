@@ -7,42 +7,37 @@
 //
 
 #import "SOZOGregorianDate.h"
+#import "SOZOMath.h"
 
 @implementation SOZOGregorianDate
 
-//"gregorian-date-difference"
-+ (int)daysDifferenceWithDate1:(id)date1 date2:(id)date2
-{
-    date1 = (SOZOGregorianDate *) date1;
-    date2 = (SOZOGregorianDate *) date2;
-    return [date2 asFixed] - [date1 asFixed];
-}
-
-+ (float)mod:(float)x y:(float)y{
-    return x - y * floor(x/y);
-}
-
-- (NSString *)description{
-    NSString * result = [NSString stringWithFormat:@"%@ %d, %d",[self monthName],[self day],[self year]];
-    return result;
-}
+#pragma mark - Object Initialization
 
 - (id)initWithYear:(int)year month:(int)month day:(int)day{
     self = [super init];
-    
     if (self) {
-        [self setNamesOfMonths:@[@"None", @"January ", @"February", @"March", @"April", @"May", @"June", @"July", @"August", @"September", @"October", @"November", @"December"]];
-        
-        [self setYear:year];
-        [self setMonth:month];
-        [self setDay:day];
+        _year = year;  // http://qualitycoding.org/objective-c-init/
+        _month = month;
+        _day = day;
     }
-    
     return self;
 }
 
-+ (int)epoch{
-    return 1;
+#pragma mark - NSObject Overrides
+
+- (NSString *)description{
+    return [NSString stringWithFormat:@"%@ %d, %d", [self monthName], self.day, self.year];
+}
+
+#pragma mark - Public Interface
+
+- (NSString *)monthName {
+    return [[self class] monthNames][self.month];
+}
+
++ (NSArray *)monthNames {
+    return @[@"None", @"January", @"February", @"March", @"April", @"May", @"June",
+             @"July", @"August", @"September", @"October", @"November", @"December"];
 }
 
 + (int)yearFromFixed:(int)fixedDay{
@@ -56,15 +51,15 @@
     
     int cyclesOf400 = floor(daysPassedSinceEpoch/daysIn400YearCycle);
     yearsTotal += cyclesOf400 * 400;
-    int daysRemaining = [self mod:daysPassedSinceEpoch y:daysIn400YearCycle];
+    int daysRemaining = moduloTowardsFloor(daysPassedSinceEpoch, daysIn400YearCycle);
     
     int cyclesOf100 = floor(daysRemaining/daysIn100YearCycle);
     yearsTotal += cyclesOf100 * 100;
-    daysRemaining = [self mod:daysRemaining y:daysIn100YearCycle];
+    daysRemaining = moduloTowardsFloor(daysRemaining, daysIn100YearCycle);
     
     int cyclesOf4 = floor(daysRemaining/daysIn4YearCycle);
     yearsTotal += cyclesOf4 * 4;
-    daysRemaining = [self mod:daysRemaining y:daysIn4YearCycle];
+    daysRemaining = moduloTowardsFloor(daysRemaining, daysIn4YearCycle);
     
     int years = floor(daysRemaining/daysIn1Year);
     yearsTotal += years;
@@ -107,11 +102,7 @@
     return  [[self alloc] initWithYear:year month:month day:day];
 }
 
-- (NSString *)monthName{
-    return [self.namesOfMonths objectAtIndex:[self month]];
-}
-
-- (BOOL)isLeapYear{
+- (BOOL)isLeapYear {
     int year_mod4 = [self year] % 4;
     NSNumber *year_mod400 = [NSNumber numberWithInteger:[self year] % 400];
     return year_mod4 == 0 && ![@[@100,@200,@300] containsObject:year_mod400];
@@ -146,9 +137,14 @@
     return floor((367 * [self month] - 362) / 12) + [self offsetToCorrect30DayFebrurary];
 }
 
-- (int)asFixed{
-//    NSLog(@"%d,%d,%d,%d,%d",[self daysBeforeStartOfEpoch] , [self nonleapDaysSinceEpoch] , [self leapDaysSinceEpoch] , [self daysInPriorMonths] , [self day]);
+- (NSInteger)asFixed{
     return [self daysBeforeStartOfEpoch] + [self nonleapDaysSinceEpoch] + [self leapDaysSinceEpoch] + [self daysInPriorMonths] + [self day];
+}
+
+#pragma mark - Internal Methods
+
++ (int)epoch {
+    return 1;
 }
 
 @end

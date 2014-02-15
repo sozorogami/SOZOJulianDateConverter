@@ -10,6 +10,6 @@
 
 @interface SOZODateConverter : NSObject
 
-+ (NSDate*)gregorianDateFromJulianYear:(int)year month:(int)month day:(int)day;
++ (NSDate *)gregorianDateFromJulianYear:(int)year month:(int)month day:(int)day;
 
 @end

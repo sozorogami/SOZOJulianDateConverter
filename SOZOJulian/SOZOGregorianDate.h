@@ -8,26 +8,25 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SOZOGregorianDate : NSObject{
-}
+@interface SOZOGregorianDate : NSObject
 
-@property (strong, nonatomic) NSArray *namesOfMonths;
-@property (nonatomic) int year;
-@property (nonatomic) int month;
-@property (nonatomic) int day;
+@property (nonatomic, assign) int year;
+@property (nonatomic, assign) int month;
+@property (nonatomic, assign) int day;
 
-+ (int)daysDifferenceWithDate1:(id)date1 date2:(id)date2;
-+ (float)mod:(float)x y:(float)y;
+@property (nonatomic, readonly) NSString *monthName;
+
 - (id)initWithYear:(int)year month:(int)month day:(int)day;
+
++ (NSArray *)monthNames;
 + (int)yearFromFixed:(int)fixedDay;
 + (id)dateFromFixed:(int)fixed_day;
-- (NSString *)monthName;
 - (BOOL)isLeapYear;
 - (int)daysBeforeStartOfEpoch;
 - (int)nonleapDaysSinceEpoch;
 - (int)leapDaysSinceEpoch;
 - (int)offsetToCorrect30DayFebrurary;
 - (int)daysInPriorMonths;
-- (int)asFixed;
+- (NSInteger)asFixed;
 
 @end
