@@ -77,14 +77,14 @@
     id jan1stOfYear = [[self alloc] initWithYear:year
                                                            month:1
                                                              day:1];
-    int priorDays = fixedDay - [jan1stOfYear asFixed];
+    int priorDays = fixedDay - [jan1stOfYear daysSinceEpoch];
     
     //Correction for the assumption that Februrary has 30 days.
     id mar1stOfYear = [[self alloc] initWithYear:year
                                                            month:3
                                                              day:1];
     int correction;
-    if (fixedDay < [mar1stOfYear asFixed]) {
+    if (fixedDay < [mar1stOfYear daysSinceEpoch]) {
         correction = 0;
     } else if ([jan1stOfYear isLeapYear]) {
         correction = 1;
@@ -97,23 +97,20 @@
     id firstOfTheMonth = [[self alloc] initWithYear:year
                                                               month:month
                                                                 day:1];
-    int day = fixedDay - [firstOfTheMonth asFixed] + 1;
+    int day = fixedDay - [firstOfTheMonth daysSinceEpoch] + 1;
     
     return  [[self alloc] initWithYear:year month:month day:day];
 }
 
 - (BOOL)isLeapYear {
-    int year_mod4 = [self year] % 4;
-    NSNumber *year_mod400 = [NSNumber numberWithInteger:[self year] % 400];
-    return year_mod4 == 0 && ![@[@100,@200,@300] containsObject:year_mod400];
-}
+    if (self.year % 4 == 0) {
+        int remainder = self.year % 400;
+        if (remainder != 100 && remainder != 200 && remainder != 300) {
+            return YES;
+        }
+    }
 
-- (int)daysBeforeStartOfEpoch{
-    return [[self class] epoch] - 1;
-}
-
-- (int)nonleapDaysSinceEpoch{
-    return 365 * ([self year] - 1);
+    return NO;
 }
 
 - (int)leapDaysSinceEpoch{
@@ -121,23 +118,11 @@
         floor(([self year] - 1) / 400.0);
 }
 
-- (int)offsetToCorrect30DayFebrurary{
-    if ([self month] <= 2) {
-        return 0;
-    }
-    else if ([self isLeapYear]){
-        return -1;
-    }
-    else{
-        return -2;
-    }
-}
-
 - (int)daysInPriorMonths{
     return floor((367 * [self month] - 362) / 12) + [self offsetToCorrect30DayFebrurary];
 }
 
-- (NSInteger)asFixed{
+- (NSInteger)daysSinceEpoch {
     return [self daysBeforeStartOfEpoch] + [self nonleapDaysSinceEpoch] + [self leapDaysSinceEpoch] + [self daysInPriorMonths] + [self day];
 }
 
@@ -145,6 +130,24 @@
 
 + (int)epoch {
     return 1;
+}
+
+- (int)offsetToCorrect30DayFebrurary {
+    if (self.month <= 2) {
+        return 0;
+    } else if (self.isLeapYear) {
+        return -1;
+    } else {
+        return -2;
+    }
+}
+
+- (int)daysBeforeStartOfEpoch {
+    return [[self class] epoch] - 1;
+}
+
+- (int)nonleapDaysSinceEpoch {
+    return 365 * (self.year - 1);
 }
 
 @end

@@ -18,7 +18,7 @@
     [self checkForZeroYear:year];
     
     SOZOJulianDate *julian = [[SOZOJulianDate alloc] initWithYear:year month:month day:day];
-    SOZOGregorianDate *gregorian = [SOZOGregorianDate dateFromFixed:[julian asFixed]];
+    SOZOGregorianDate *gregorian = [SOZOGregorianDate dateFromFixed:[julian daysSinceEpoch]];
 
     NSDateComponents *components = [[NSDateComponents alloc] init];
 

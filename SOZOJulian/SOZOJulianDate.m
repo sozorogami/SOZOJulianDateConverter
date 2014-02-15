@@ -22,7 +22,7 @@
 #pragma mark - Internal Methods
 
 + (int)epoch{
-    return [[[SOZOGregorianDate alloc] initWithYear:0 month:12 day:30] asFixed];
+    return [[[SOZOGregorianDate alloc] initWithYear:0 month:12 day:30] daysSinceEpoch];
 }
 
 //Adjustment for lack of year 0

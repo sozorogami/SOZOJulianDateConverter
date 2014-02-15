@@ -15,18 +15,15 @@
 @property (nonatomic, assign) int day;
 
 @property (nonatomic, readonly) NSString *monthName;
+@property (nonatomic, readonly) NSInteger daysSinceEpoch;
 
 - (id)initWithYear:(int)year month:(int)month day:(int)day;
 
 + (NSArray *)monthNames;
 + (int)yearFromFixed:(int)fixedDay;
-+ (id)dateFromFixed:(int)fixed_day;
++ (id)dateFromFixed:(int)fixedDay;
 - (BOOL)isLeapYear;
-- (int)daysBeforeStartOfEpoch;
-- (int)nonleapDaysSinceEpoch;
 - (int)leapDaysSinceEpoch;
-- (int)offsetToCorrect30DayFebrurary;
 - (int)daysInPriorMonths;
-- (NSInteger)asFixed;
 
 @end
