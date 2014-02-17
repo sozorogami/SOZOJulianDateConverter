@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'SOZOJulianDateConverter' target in the 'SOZOJulianDateConverter' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif

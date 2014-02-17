@@ -1,0 +1,2 @@
+language: objective-c
+script: xcodebuild -project SOZOJulianDateConverter.xcodeproj -scheme SOZOJulianDateConverter -sdk iphonesimulator test
