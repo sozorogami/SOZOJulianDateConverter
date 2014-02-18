@@ -42,6 +42,44 @@
 
 #pragma mark - Public Interface
 
++ (id)dateFromFixed:(int)fixedDay{
+    int year = [self yearFromFixed:fixedDay];
+    id jan1stOfYear = [[self alloc] initWithYear:year
+                                                           month:1
+                                                             day:1];
+    int priorDays = fixedDay - [jan1stOfYear daysSinceEpoch];
+    
+    //Correction for the assumption that Februrary has 30 days.
+    id mar1stOfYear = [[self alloc] initWithYear:year
+                                                           month:3
+                                                             day:1];
+    int correction;
+    if (fixedDay < [mar1stOfYear daysSinceEpoch]) {
+        correction = 0;
+    } else if ([jan1stOfYear isLeapYear]) {
+        correction = 1;
+    } else {
+        correction = 2;
+    }
+    
+    int month = floor((12 * (priorDays + correction) + 373) / 367.0);
+    
+    id firstOfTheMonth = [[self alloc] initWithYear:year
+                                                              month:month
+                                                                day:1];
+    int day = fixedDay - [firstOfTheMonth daysSinceEpoch] + 1;
+    
+    return  [[self alloc] initWithYear:year month:month day:day];
+}
+
+
+- (NSInteger)daysSinceEpoch {
+    return [self daysBeforeStartOfEpoch] + [self nonleapDaysSinceEpoch] +
+    [self leapDaysSinceEpoch] + [self daysInPriorMonths] + [self day];
+}
+
+#pragma mark - Internal Methods
+
 - (NSString *)monthName {
     return [[self class] monthNames][self.month];
 }
@@ -49,6 +87,27 @@
 + (NSArray *)monthNames {
     return @[@"None", @"January", @"February", @"March", @"April", @"May", @"June",
              @"July", @"August", @"September", @"October", @"November", @"December"];
+}
+
++ (int)epoch {
+    return 1;
+}
+
+- (int)daysBeforeStartOfEpoch {
+    return [[self class] epoch] - 1;
+}
+
+- (int)leapDaysSinceEpoch{
+    return floor(([self year] - 1) / 4.0) - floor(([self year] - 1) / 100.0) +
+    floor(([self year] - 1) / 400.0);
+}
+
+- (int)nonleapDaysSinceEpoch {
+    return 365 * (self.year - 1);
+}
+
+- (int)daysInPriorMonths{
+    return floor((367 * [self month] - 362) / 12) + [self offsetToCorrect30DayFebrurary];
 }
 
 + (int)yearFromFixed:(int)fixedDay{
@@ -83,36 +142,6 @@
     return yearsTotal;
 }
 
-+ (id)dateFromFixed:(int)fixedDay{
-    int year = [self yearFromFixed:fixedDay];
-    id jan1stOfYear = [[self alloc] initWithYear:year
-                                                           month:1
-                                                             day:1];
-    int priorDays = fixedDay - [jan1stOfYear daysSinceEpoch];
-    
-    //Correction for the assumption that Februrary has 30 days.
-    id mar1stOfYear = [[self alloc] initWithYear:year
-                                                           month:3
-                                                             day:1];
-    int correction;
-    if (fixedDay < [mar1stOfYear daysSinceEpoch]) {
-        correction = 0;
-    } else if ([jan1stOfYear isLeapYear]) {
-        correction = 1;
-    } else {
-        correction = 2;
-    }
-    
-    int month = floor((12 * (priorDays + correction) + 373) / 367.0);
-    
-    id firstOfTheMonth = [[self alloc] initWithYear:year
-                                                              month:month
-                                                                day:1];
-    int day = fixedDay - [firstOfTheMonth daysSinceEpoch] + 1;
-    
-    return  [[self alloc] initWithYear:year month:month day:day];
-}
-
 - (BOOL)isLeapYear {
     if (self.year % 4 == 0) {
         int remainder = self.year % 400;
@@ -120,27 +149,8 @@
             return YES;
         }
     }
-
+    
     return NO;
-}
-
-- (int)leapDaysSinceEpoch{
-    return floor(([self year] - 1) / 4.0) - floor(([self year] - 1) / 100.0) +
-        floor(([self year] - 1) / 400.0);
-}
-
-- (int)daysInPriorMonths{
-    return floor((367 * [self month] - 362) / 12) + [self offsetToCorrect30DayFebrurary];
-}
-
-- (NSInteger)daysSinceEpoch {
-    return [self daysBeforeStartOfEpoch] + [self nonleapDaysSinceEpoch] + [self leapDaysSinceEpoch] + [self daysInPriorMonths] + [self day];
-}
-
-#pragma mark - Internal Methods
-
-+ (int)epoch {
-    return 1;
 }
 
 - (int)offsetToCorrect30DayFebrurary {
@@ -151,14 +161,6 @@
     } else {
         return -2;
     }
-}
-
-- (int)daysBeforeStartOfEpoch {
-    return [[self class] epoch] - 1;
-}
-
-- (int)nonleapDaysSinceEpoch {
-    return 365 * (self.year - 1);
 }
 
 @end

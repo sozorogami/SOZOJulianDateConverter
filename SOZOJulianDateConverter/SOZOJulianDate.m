@@ -21,16 +21,15 @@
 
 #pragma mark - Internal Methods
 
-+ (int)epoch{
++ (int)epoch {
     return [[[SOZOGregorianDate alloc] initWithYear:0 month:12 day:30] daysSinceEpoch];
 }
 
-//Adjustment for lack of year 0
-- (int)adjustedYear{
-    return [self year] < 0 ? [self year] + 1 : [self year];
+- (int)leapDaysSinceEpoch{
+    return floor(([self adjustedYear] - 1) / 4.0);
 }
 
-- (int)nonleapDaysSinceEpoch{
+- (int)nonleapDaysSinceEpoch {
     return 365 * ([self adjustedYear] - 1);
 }
 
@@ -39,13 +38,14 @@
     return self.year > 0 ? remainder == 0 : remainder == 3;
 }
 
-- (int)leapDaysSinceEpoch{
-    return floor(([self adjustedYear] - 1) / 4.0);
-}
-
 + (int)yearFromFixed:(int)fixedDay{
     int approx = floor((4 * (fixedDay - [self epoch]) + 1464) / 1461.0);
     return approx <= 0 ? approx - 1 : approx;
+}
+
+//Adjustment for lack of year 0
+- (int)adjustedYear{
+    return [self year] < 0 ? [self year] + 1 : [self year];
 }
 
 @end

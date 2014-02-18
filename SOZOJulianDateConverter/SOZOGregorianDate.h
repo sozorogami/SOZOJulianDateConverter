@@ -19,12 +19,6 @@
 
 - (id)initWithYear:(int)year month:(int)month day:(int)day;
 - (id)initWithDate:(NSDate *)date;
-
-+ (NSArray *)monthNames;
-+ (int)yearFromFixed:(int)fixedDay;
 + (id)dateFromFixed:(int)fixedDay;
-- (BOOL)isLeapYear;
-- (int)leapDaysSinceEpoch;
-- (int)daysInPriorMonths;
 
 @end
