@@ -8,4 +8,4 @@
 
 #import <Foundation/Foundation.h>
 
-float moduloTowardsFloor(float numerator, float denominator);
+float modulo(float numerator, float denominator);

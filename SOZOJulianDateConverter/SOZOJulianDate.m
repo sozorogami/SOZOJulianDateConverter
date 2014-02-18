@@ -35,7 +35,7 @@
 }
 
 - (BOOL)isLeapYear{
-    float remainder = moduloTowardsFloor(self.year, 4);
+    float remainder = modulo(self.year, 4);
     return self.year > 0 ? remainder == 0 : remainder == 3;
 }
 

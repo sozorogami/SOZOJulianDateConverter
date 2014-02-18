@@ -19,6 +19,7 @@
 		2FFA449818B2405F00D35205 /* SOZOMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFA449418B2405F00D35205 /* SOZOMath.m */; };
 		2FFA449B18B2408B00D35205 /* SOZODateConverterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFA449918B2408B00D35205 /* SOZODateConverterTests.m */; };
 		2FFA449C18B2408B00D35205 /* SOZOMathTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFA449A18B2408B00D35205 /* SOZOMathTests.m */; };
+		2FFA449F18B3401B00D35205 /* SOZOSolarCalendarDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFA449E18B3401B00D35205 /* SOZOSolarCalendarDate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,8 @@
 		2FFA449418B2405F00D35205 /* SOZOMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOZOMath.m; sourceTree = "<group>"; };
 		2FFA449918B2408B00D35205 /* SOZODateConverterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOZODateConverterTests.m; sourceTree = "<group>"; };
 		2FFA449A18B2408B00D35205 /* SOZOMathTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOZOMathTests.m; sourceTree = "<group>"; };
+		2FFA449D18B3401B00D35205 /* SOZOSolarCalendarDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOZOSolarCalendarDate.h; sourceTree = "<group>"; };
+		2FFA449E18B3401B00D35205 /* SOZOSolarCalendarDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOZOSolarCalendarDate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +126,8 @@
 				2FFA448D18B2405F00D35205 /* SOZOGregorianDate.m */,
 				2FFA448F18B2405F00D35205 /* SOZOJulianDate.h */,
 				2FFA449018B2405F00D35205 /* SOZOJulianDate.m */,
+				2FFA449D18B3401B00D35205 /* SOZOSolarCalendarDate.h */,
+				2FFA449E18B3401B00D35205 /* SOZOSolarCalendarDate.m */,
 				2FFA449118B2405F00D35205 /* SOZOJulianDateConverter.h */,
 				2FFA449218B2405F00D35205 /* SOZOJulianDateConverter.m */,
 				2FFA449318B2405F00D35205 /* SOZOMath.h */,
@@ -261,6 +266,7 @@
 				2FFA449618B2405F00D35205 /* SOZOJulianDate.m in Sources */,
 				2FFA449718B2405F00D35205 /* SOZOJulianDateConverter.m in Sources */,
 				2FFA449818B2405F00D35205 /* SOZOMath.m in Sources */,
+				2FFA449F18B3401B00D35205 /* SOZOSolarCalendarDate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

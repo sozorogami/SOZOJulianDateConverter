@@ -62,15 +62,15 @@
     
     int cyclesOf400 = floor(daysPassedSinceEpoch/daysIn400YearCycle);
     yearsTotal += cyclesOf400 * 400;
-    int daysRemaining = moduloTowardsFloor(daysPassedSinceEpoch, daysIn400YearCycle);
+    int daysRemaining = modulo(daysPassedSinceEpoch, daysIn400YearCycle);
     
     int cyclesOf100 = floor(daysRemaining/daysIn100YearCycle);
     yearsTotal += cyclesOf100 * 100;
-    daysRemaining = moduloTowardsFloor(daysRemaining, daysIn100YearCycle);
+    daysRemaining = modulo(daysRemaining, daysIn100YearCycle);
     
     int cyclesOf4 = floor(daysRemaining/daysIn4YearCycle);
     yearsTotal += cyclesOf4 * 4;
-    daysRemaining = moduloTowardsFloor(daysRemaining, daysIn4YearCycle);
+    daysRemaining = modulo(daysRemaining, daysIn4YearCycle);
     
     int years = floor(daysRemaining/daysIn1Year);
     yearsTotal += years;

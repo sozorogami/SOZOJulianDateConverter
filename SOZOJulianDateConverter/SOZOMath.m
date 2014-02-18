@@ -8,6 +8,11 @@
 
 #import "SOZOMath.h"
 
-float moduloTowardsFloor(float numerator, float denominator) {
+
+/**
+ C does not implement a modulo function for nonintegers, and thus the definition
+ `x % y = x - y` must be used for calendrical calcuations.
+ */
+float modulo(float numerator, float denominator) {
     return numerator - denominator * floorf(numerator/denominator);
 }
