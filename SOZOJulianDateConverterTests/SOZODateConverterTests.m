@@ -11,6 +11,8 @@
 
 @interface SOZODateConverterTests : SenTestCase
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
+@property (nonatomic, strong) NSDate *convertedDate;
+@property (nonatomic, strong) NSDate *targetDate;
 
 @end
 
@@ -31,32 +33,37 @@
 }
 
 - (void)testConvertingJulianToGregorianForPreGregorianDates {
-    STAssertEqualObjects([SOZOJulianDateConverter dateFromJulianYear:1436 month:1 day:25],
-                         [self.dateFormatter dateFromString:@"1436-02-03 AD 12:00:00"],
-                         nil);
+    self.convertedDate = [SOZOJulianDateConverter dateFromJulianYear:1436 month:1 day:25];
+    self.targetDate = [self.dateFormatter dateFromString:@"1436-02-03 AD 12:00:00"];
+    STAssertEqualObjects(self.convertedDate, self.targetDate,
+                         @"Expected Gregorian date %@, got %@", self.targetDate, self.convertedDate);
 }
 
 - (void)testConvertingJulianToGregorianForBC {
-    STAssertEqualObjects([SOZOJulianDateConverter dateFromJulianYear:-587 month:7 day:30],
-                         [self.dateFormatter dateFromString:@"0586-7-24 BC 12:00:00"],
-                         @"Expected Julian date of 1/25/1436 to be converted to Gregorian 2/3/1436.");
+    self.convertedDate = [SOZOJulianDateConverter dateFromJulianYear:-587 month:7 day:30];
+    self.targetDate = [self.dateFormatter dateFromString:@"0586-7-24 BC 12:00:00"];
+    STAssertEqualObjects(self.convertedDate, self.targetDate,
+                         @"Expected Gregorian date %@, got %@", self.targetDate, self.convertedDate);
 }
 
 - (void)testConvertingJulianToGregorianNearGregorianChange {
-    STAssertEqualObjects([SOZOJulianDateConverter dateFromJulianYear:1582 month:10 day:4],
-                         [self.dateFormatter dateFromString:@"1582-10-14 AD 12:00:00"],
-                         @"Expected Julian date of 10/4/1582 to be converted to Gregorian 10/14/1582.");
+    self.convertedDate = [SOZOJulianDateConverter dateFromJulianYear:1582 month:10 day:4];
+    self.targetDate = [self.dateFormatter dateFromString:@"1582-10-14 AD 12:00:00"];
+    STAssertEqualObjects(self.convertedDate, self.targetDate,
+                         @"Expected Gregorian date %@, got %@", self.targetDate, self.convertedDate);
 }
 
 - (void)testJulianDateBeforeGregorianEraChangeover {
-    STAssertEqualObjects([SOZOJulianDateConverter dateFromJulianYear:-1 month:1 day:2],
-                         [self.dateFormatter dateFromString:@"0001-12-31 BC 12:00:00"],
+    self.convertedDate = [SOZOJulianDateConverter dateFromJulianYear:-1 month:1 day:2];
+    self.targetDate = [self.dateFormatter dateFromString:@"0001-12-31 BC 12:00:00"];
+    STAssertEqualObjects(self.convertedDate, self.targetDate,
                          @"Given Julian date should represent the first day before the Gregorian epoch.");
 }
 
 - (void)testJulianDateAfterGregorianEraChangeover {
-    STAssertEqualObjects([SOZOJulianDateConverter dateFromJulianYear:-1 month:1 day:3],
-                         [self.dateFormatter dateFromString:@"0001-01-01 AD 12:00:00"],
+    self.convertedDate = [SOZOJulianDateConverter dateFromJulianYear:-1 month:1 day:3];
+    self.targetDate = [self.dateFormatter dateFromString:@"0001-01-01 AD 12:00:00"];
+    STAssertEqualObjects(self.convertedDate, self.targetDate,
                          @"Given Julian date should represent the first day of the Gregorian epoch.");
 }
 
