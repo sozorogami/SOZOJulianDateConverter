@@ -7,18 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SOZOSolarCalendarDate.h"
 
-@interface SOZOGregorianDate : NSObject
+@interface SOZOGregorianDate : SOZOSolarCalendarDate
 
-@property (nonatomic, assign) int year;
-@property (nonatomic, assign) int month;
-@property (nonatomic, assign) int day;
-
-@property (nonatomic, readonly) NSString *monthName;
-@property (nonatomic, readonly) NSInteger daysSinceEpoch;
-
-- (id)initWithYear:(int)year month:(int)month day:(int)day;
 - (id)initWithDate:(NSDate *)date;
-+ (id)dateFromFixed:(int)fixedDay;
 
 @end

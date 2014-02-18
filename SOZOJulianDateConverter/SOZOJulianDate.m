@@ -12,13 +12,6 @@
 
 @implementation SOZOJulianDate
 
-#pragma mark - Object Initialization
-
-- (id)initWithYear:(int)year month:(int)month day:(int)day {
-    self = [super initWithYear:year month:month day:day];
-    return self;
-}
-
 #pragma mark - Internal Methods
 
 + (int)epoch {

@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Tyler Tape. All rights reserved.
 //
 
-#import "SOZOGregorianDate.h"
+#import "SOZOSolarCalendarDate.h"
 #import <Foundation/Foundation.h>
 
-@interface SOZOJulianDate : SOZOGregorianDate
+@interface SOZOJulianDate : SOZOSolarCalendarDate
 
 @end
