@@ -10,8 +10,8 @@
 
 
 /**
- C does not implement a modulo function for nonintegers, and thus the definition
- `x % y = x - y` must be used for calendrical calcuations.
+ C does not implement a modulo function for nonintegers, and thus the following definition
+ must be used for calendrical calcuations.
  */
 float modulo(float numerator, float denominator) {
     return numerator - denominator * floorf(numerator/denominator);
